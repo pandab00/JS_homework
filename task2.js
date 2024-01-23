@@ -1,26 +1,10 @@
-// Задание 2. Написать функцию, которая принимает на входе любое число (но не больше 1 000), определяет, является ли оно простым, и выводит простое число или нет. Если введено больше 1 000, то выводится сообщение, что данные неверны. Обратите внимание на числа 0 и 1.
+function checkProp(prop, obj) {
+  return obj.hasOwnProperty(prop);
+}
 
-// Здесь вам пригодятся знания из предыдущего модуля — циклы и условные операторы.
+// Произвольный объект для проверки:
+const men = {
+  strong: 32
+}
 
-
-function isPrimeNumber(number) {
-    if(number <= 1 || number > 1000) {
-      console.log('Неверные данные');
-      return;
-    }
-    
-    let isPrime = true;
-    for(i = 2; i < number; i++) {
-      if(number % i === 0) {
-        isPrime = false;
-        break;
-      }
-    }
-    if(isPrime) {
-      console.log(`${number} - простое число`);
-    } else {
-      console.log(`${number} - не простое число!`);
-    }
-  }
-  
-  isPrimeNumber(11)
+console.log(checkProp('strong', men))
