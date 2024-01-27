@@ -1,5 +1,5 @@
 function checkProp(prop, obj) {
-  return obj.hasOwnProperty(prop);
+  return prop in obj;
 }
 
 // Произвольный объект для проверки:

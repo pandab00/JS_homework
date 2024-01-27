@@ -1,7 +1,6 @@
 //Родительская функция
 function ElDevice(typeOfWork, power ) {
   this.type = typeOfWork,
-  this.power = power,
   this.isOn = false
 }
 
@@ -17,12 +16,13 @@ ElDevice.prototype.switchOff = function() {
 
 
 //Создаем класс приборов - лампы.
-function Lamp(brand, brightness) {
+function Lamp(brand, brightness, power) {
   this.name = brand,
-  this.brightness = brightness
+  this.brightness = brightness,
+  this.power = power
 }
 
-Lamp.prototype = new ElDevice('electro', 4);
+Lamp.prototype = Object.create(ElDevice.prototype);
 
 //Переопределяем классу лампы метод switchOn, чтобы он указывал дополнительно уровень яркости.
 Lamp.prototype.switchOn = function() {
@@ -30,8 +30,8 @@ Lamp.prototype.switchOn = function() {
   console.log(`Device ${this.name} is active now and it brightnes is ${this.brightness}`)
 }
 
-const lamp1 = new Lamp('filips', 'level 2');
-const lamp2 = new Lamp('sumsung', 'level High');
+const lamp1 = new Lamp('filips', 'level 2', 1.3);
+const lamp2 = new Lamp('sumsung', 'level High', 1.6);
 console.log(lamp1);
 lamp1.switchOn();
 console.log(lamp2);
@@ -40,13 +40,14 @@ lamp2.switchOn();
 
 //Создаем класс приборов - консоли.
 
-function GameConsole(brand, model, price) {
+function GameConsole(brand, model, price, power) {
   this.brand = brand,
   this.model = model,
-  this.price = price
+  this.price = price,
+  this.power = power
 }
 
-GameConsole.prototype = new ElDevice('electr', 7);
+GameConsole.prototype = Object.create(ElDevice.prototype)
 
 
 //Создаем собственный метод для GameConsole
@@ -55,8 +56,8 @@ GameConsole.prototype.getPrice = function() {
   console.log(`Your price is ${this.price*0.8}`)
 }
 
-const ps5 = new GameConsole('Sony', 5, 800);
-const xBoxOne = new GameConsole('MSoft', 3, 600);
+const ps5 = new GameConsole('Sony', 5, 800, 2.3);
+const xBoxOne = new GameConsole('MSoft', 3, 600, 2.1);
 
 console.log(ps5)
 
@@ -68,10 +69,16 @@ const sumPower = [];
 
 sumPower.push(ps5, xBoxOne, lamp1, lamp2);
 
-let totalPow = 0;
 
-for(let i = 0; i < sumPower.length; i++) {
-  totalPow += sumPower[i].power;
+function sumPow() {
+  let totalPow = 0;
+  for(let i = 0; i < sumPower.length; i++) {
+    totalPow += sumPower[i].power; 
+  }
+  console.log("Суммарная потребляемая мощность всех приборов: " + totalPow + " Вт");
 }
 
-console.log("Суммарная потребляемая мощность всех приборов: " + totalPow + " Вт");
+sumPow();
+
+
+
