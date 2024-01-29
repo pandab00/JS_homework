@@ -65,20 +65,20 @@ ps5.getPrice()
 
 
 //суммируем мощность
-const sumPower = [];
+const allPower = [];
 
-sumPower.push(ps5, xBoxOne, lamp1, lamp2);
+allPower.push(ps5, xBoxOne, lamp1, lamp2);
 
 
-function sumPow() {
+function sumPow(arr) {
   let totalPow = 0;
-  for(let i = 0; i < sumPower.length; i++) {
-    totalPow += sumPower[i].power; 
+  for(let i = 0; i < arr.length; i++) {
+    totalPow += arr[i].power; 
   }
   console.log("Суммарная потребляемая мощность всех приборов: " + totalPow + " Вт");
 }
 
-sumPow();
+sumPow(allPower);
 
 
 
