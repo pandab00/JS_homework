@@ -29,6 +29,8 @@
 //   ]
 // }
 
+
+//решение//
 const xmlString = `<list>
   <student>
     <name lang="en">
