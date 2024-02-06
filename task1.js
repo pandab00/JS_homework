@@ -65,7 +65,7 @@ for(let i = 0; i < students.length; i++) {
  const nameElement = student.querySelector('name');
  const firstName = nameElement.querySelector('first').textContent;
  const lastName = nameElement.querySelector('second').textContent;
- const age = student.querySelector('age').textContent;
+ const age = +(student.querySelector('age').textContent);
  const pro = student.querySelector('prof').textContent;
  const langAttr = nameElement.getAttribute('lang');
   
