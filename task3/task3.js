@@ -27,7 +27,9 @@ function request(){
   //4 посылаем запрос
   xhr.send();
   } else {
-    alert('число вне диапазона от 1 до 10')
+    const div = document.createElement("div");
+    div.innerText = "Число вне диапазона от 1 до 10";
+    document.body.appendChild(div);
   }
 }
   

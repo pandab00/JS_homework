@@ -7,7 +7,9 @@ function enterNum(){
   const value2 = parseInt(inputTwo.value);
   
   if(isNaN(value1) || isNaN(value1) || value1 < 100 || value1 > 300 || value2 < 100 || value2 > 300) {
-    console.log('одно из чисел или оба вне диапазона от 100 до 300')
+    const div = document.createElement("div");
+    div.innerText = "Одно из чисел вне диапазона от 1 до 10";
+    document.body.appendChild(div);
   } else{
     const url = `https://dummyimage.com/${value1}x${value2}/`;
     fetch(url)
