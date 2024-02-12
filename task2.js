@@ -42,8 +42,4 @@ const data = `{
    
    const obj = JSON.parse(data);
    
-   for(let i = 0; i < obj.list.length; i++){
-     obj.list[i].age = +(obj.list[i].age)
-   }
-   
    console.log(obj);

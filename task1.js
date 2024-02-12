@@ -60,20 +60,16 @@ const res = {
 }
 
 for(let i = 0; i < students.length; i++) {
-  
+
  const student = students[i];
- const nameElement = student.querySelector('name');
- const firstName = nameElement.querySelector('first').textContent;
- const lastName = nameElement.querySelector('second').textContent;
- const age = +(student.querySelector('age').textContent);
- const pro = student.querySelector('prof').textContent;
- const langAttr = nameElement.getAttribute('lang');
+  const nameElement = student.querySelector('name');
   
  const studObj = {
-   name: `${firstName} ${lastName}`,
-   age: age,
-   prof: pro,
-   lang: langAttr
+   firstName: nameElement.querySelector('first').textContent,
+   lastName: nameElement.querySelector('second').textContent,
+   age: +(student.querySelector('age').textContent),
+   prof: student.querySelector('prof').textContent,
+   lang: nameElement.getAttribute('lang')
  };
    
  res.list.push(studObj);
