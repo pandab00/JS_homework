@@ -60,19 +60,13 @@ const res = {
 }
 
 for(let i = 0; i < students.length; i++) {
-
- const student = students[i];
-  const nameElement = student.querySelector('name');
   
  const studObj = {
-   firstName: nameElement.querySelector('first').textContent,
-   lastName: nameElement.querySelector('second').textContent,
-   age: +(student.querySelector('age').textContent),
-   prof: student.querySelector('prof').textContent,
-   lang: nameElement.getAttribute('lang')
+   name: `${students[i].querySelector('first').textContent} ${students[i].querySelector('second').textContent}`,
+   age: +(students[i].querySelector('age').textContent),
+   prof: students[i].querySelector('prof').textContent,
+   lang: students[i].querySelector('name').getAttribute('lang')
  };
    
  res.list.push(studObj);
 }
-
-console.log(res);
