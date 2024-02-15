@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn {
+        padding: 50px 70px;
+        border: none;
+        border-radius: 40px;
+
+        font-size: 36px;
+        background-image: linear-gradient(
+          60deg,
+          #e85475 10%,
+          #d48444 50%,
+          #e85453 100%
+        );
+        color: #f7f4f4;
+
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+      }
+      .btn:active {
+        position: relative;
+        top: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn">Screen Size</button>
+    </div>
+    <script>
+      const btn = document.querySelector(".btn");
+      btn.addEventListener("click", function () {
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        alert(`Ширина экрана: ${screenWidth} Высота: ${screenHeight}`);
+      });
+    </script>
+  </body>
+</html>
